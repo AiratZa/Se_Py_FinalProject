@@ -8,10 +8,6 @@ class BasePageLocators():
 class LoginPageLocators():
     LOGIN_FORM = (By.ID, "login_form")
     REGISTER_FORM = (By.ID, "register_form")
-    EMAIL_FORM = (By.NAME, "login-username")
-    PASSWORD_FORM = (By.NAME, "login-password")
-    SUBMIT_BTN = (By.NAME, "login-submit")
-    SUBMIT_BTN = (By.LINK_TEXT, "Я забыл пароль")
 
     REGISTRATION_EMAIL_FORM = (By.CSS_SELECTOR,'[name="registration-email"]')
     REGISTRATION_PASSWORD1_FORM = (By.CSS_SELECTOR,'[name="registration-password1"]')

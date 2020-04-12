@@ -2,9 +2,6 @@ from .base_page import BasePage
 from .locators import ProductPageLocators
 
 
-
-
-
 class ProductPage(BasePage):
     def add_item_to_basket(self):
         self.should_be_add_to_basket_btn()
@@ -13,15 +10,12 @@ class ProductPage(BasePage):
         self.solve_quiz_and_get_code()
         self.should_be_alert_added_selected_item()
         self.should_be_equal_item_cost_and_basket_cost_after_adding_item()
-        
-
-    
+          
     def guest_cant_see_success_message(self):
         self.should_not_be_success_message()
     
     def success_message_disappeared(self):
         self.should_dissapear_success_message()
-
 
     def should_be_add_to_basket_btn(self):
         assert self.is_element_present(*ProductPageLocators.ADD_TO_BASKET_BTN), "ADD_TO_BASKET_BTN is not presented"
