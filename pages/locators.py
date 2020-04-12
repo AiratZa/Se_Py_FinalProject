@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 class BasePageLocators():
     LOGIN_LINK = (By.ID, "login_link")
     BASKET_LINK = (By.CSS_SELECTOR, '.btn-group>.btn.btn-default[href*="basket"]')
-
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 class LoginPageLocators():
     LOGIN_FORM = (By.ID, "login_form")
@@ -12,6 +12,12 @@ class LoginPageLocators():
     PASSWORD_FORM = (By.NAME, "login-password")
     SUBMIT_BTN = (By.NAME, "login-submit")
     SUBMIT_BTN = (By.LINK_TEXT, "Я забыл пароль")
+
+    REGISTRATION_EMAIL_FORM = (By.CSS_SELECTOR,'[name="registration-email"]')
+    REGISTRATION_PASSWORD1_FORM = (By.CSS_SELECTOR,'[name="registration-password1"]')
+    REGISTRATION_PASSWORD2_FORM = (By.CSS_SELECTOR,'[name="registration-password2"]')
+    SUBMIT_REGISTRATION_BTN = (By.CSS_SELECTOR,'[name="registration_submit"]')
+
 
 class ProductPageLocators():
     ADD_TO_BASKET_BTN = (By.CLASS_NAME, "btn-add-to-basket")

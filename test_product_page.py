@@ -68,11 +68,25 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     basket_page = BasketPage(browser, browser.current_url)
     basket_page.guest_cant_see_product_in_basket_opened_from_main_page()
 
-# В файле test_product_page.py добавьте тест с названием
-# Гость открывает страницу товара
-# Переходит в корзину по кнопке в шапке 
-# Ожидаем, что в корзине нет товаров
-# Ожидаем, что есть текст о том что корзина пуста 
-# В классе BasePage реализуйте соответствующий метод для перехода в корзину. Создайте файл basket_page.py и в нем класс BasketPage. Реализуйте там необходимые проверки, в том числе отрицательную, которую мы обсуждали в предыдущих шагах. 
+@pytest.mark.login_user
+class TestUserAddToBasketFromProductPage():
+    @pytest.fixture(scope="function", autouse=True)
+    def setup(self, browser):
+        email = str(time.time()) + "@fakemail.org"
+        password = "Q1w2E3r4T5y"
+        page = ProductPage(browser, link)
+        page.open()
+        page.go_to_login_page()
+        login_page = LoginPage(browser, browser.current_url)
+        login_page.register_new_user(email, password)
+        login_page.should_be_authorized_user()
 
-# Убедитесь, что тесты проходят и зафиксируйте изменения в коммите. 
+    def test_user_can_add_product_to_basket(self, browser):
+        page = ProductPage(browser, link)
+        page.open()
+        page.add_item_to_basket()
+
+    def test_user_cant_see_success_message(self, browser):
+        page = ProductPage(browser, link)
+        page.open()
+        page.guest_cant_see_success_message()
